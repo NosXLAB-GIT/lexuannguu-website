@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Lexuannguu Wiki - Demo</title>
+<title>Lexuannguu Wiki</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -15,57 +15,52 @@
 
 body{
     height:100vh;
-    background:#0f172a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    background:#020617;
     overflow:hidden;
     color:white;
 }
 
-/* nền mờ */
-.bg{
+/* nền gradient động */
+body::before{
+    content:"";
     position:absolute;
-    width:100%;
-    height:100%;
-    background:url("https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png") center/cover no-repeat;
-    filter:blur(10px) brightness(0.3);
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle at 30% 30%, #1e293b, #020617);
+    animation:bgmove 15s linear infinite;
 }
 
-/* vòng quay */
-.orbit{
+@keyframes bgmove{
+    0%{ transform:translate(0,0); }
+    50%{ transform:translate(-20%,-10%); }
+    100%{ transform:translate(0,0); }
+}
+
+/* layout */
+.container{
     position:relative;
-    width:400px;
-    height:400px;
-    animation:spin 20s linear infinite;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:2;
 }
 
-/* ảnh xoay */
-.orbit img{
-    position:absolute;
-    width:100px;
-    height:100px;
-    object-fit:cover;
-    border-radius:20px;
-    border:2px solid rgba(255,255,255,0.2);
-    box-shadow:0 0 20px rgba(255,255,255,0.2);
-}
-
-/* vị trí 3 ảnh */
-.img1{ top:0; left:50%; transform:translateX(-50%); }
-.img2{ bottom:0; left:0; }
-.img3{ bottom:0; right:0; }
-
-/* avatar giữa */
+/* avatar center */
 .center{
-    position:absolute;
-    width:150px;
-    height:150px;
+    width:170px;
+    height:170px;
     border-radius:50%;
     overflow:hidden;
-    border:4px solid white;
-    box-shadow:0 0 30px rgba(255,255,255,0.5);
-    z-index:2;
+    border:3px solid rgba(255,255,255,0.3);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 40px rgba(255,255,255,0.3);
+    transition:0.3s;
+}
+
+.center:hover{
+    transform:scale(1.05);
 }
 
 .center img{
@@ -74,27 +69,86 @@ body{
     object-fit:cover;
 }
 
-/* text */
-.text{
+/* orbit */
+.orbit{
     position:absolute;
-    bottom:40px;
-    text-align:center;
-    width:100%;
+    width:500px;
+    height:500px;
+    animation:spin 25s linear infinite;
 }
 
-h1{
-    font-size:28px;
-    margin-bottom:10px;
+/* ảnh demo */
+.orbit img{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:20px;
+    object-fit:cover;
+    transition:0.3s;
+    box-shadow:0 0 25px rgba(255,255,255,0.2);
 }
 
-p{
-    opacity:0.7;
+/* hover ảnh */
+.orbit img:hover{
+    transform:scale(1.2);
+    box-shadow:0 0 40px #38bdf8;
 }
 
-/* animation */
+/* vị trí 4 ảnh */
+.img1{ top:0; left:50%; transform:translateX(-50%); }
+.img2{ top:50%; left:0; transform:translateY(-50%); }
+.img3{ bottom:0; left:50%; transform:translateX(-50%); }
+.img4{ top:50%; right:0; transform:translateY(-50%); }
+
+/* animation quay */
 @keyframes spin{
     from{ transform:rotate(0deg); }
     to{ transform:rotate(360deg); }
+}
+
+/* text */
+.title{
+    margin-top:40px;
+    font-size:30px;
+    letter-spacing:2px;
+}
+
+.subtitle{
+    margin-top:10px;
+    opacity:0.6;
+}
+
+/* loading bar */
+.loading{
+    margin-top:25px;
+    width:220px;
+    height:4px;
+    background:rgba(255,255,255,0.1);
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.loading::before{
+    content:"";
+    display:block;
+    width:40%;
+    height:100%;
+    background:#38bdf8;
+    animation:load 1.2s infinite;
+}
+
+@keyframes load{
+    0%{ transform:translateX(-100%); }
+    100%{ transform:translateX(300%); }
+}
+
+/* glow nhẹ */
+.glow{
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(56,189,248,0.15), transparent);
+    filter:blur(80px);
 }
 
 </style>
@@ -102,21 +156,31 @@ p{
 
 <body>
 
-<div class="bg"></div>
+<div class="glow"></div>
 
-<div class="orbit">
-    <img class="img1" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/675493123_2079986209251527_4933549213989958616_n.png">
-    <img class="img2" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/677168780_988375313621487_505330018484153751_n.png">
-    <img class="img3" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/678212155_994847826323884_9090406677020971255_n.png">
-</div>
+<div class="container">
 
-<div class="center">
-    <img src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png">
-</div>
+    <!-- orbit ảnh -->
+    <div class="orbit">
+        <img class="img1" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/675493123_2079986209251527_4933549213989958616_n.png">
+        <img class="img2" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/677168780_988375313621487_505330018484153751_n.png">
+        <img class="img3" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/678212155_994847826323884_9090406677020971255_n.png">
+        <img class="img4" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/680236593_2321679608324497_1358677169647068741_n.png">
+    </div>
 
-<div class="text">
-    <h1>🚧 Lexuannguu Wiki</h1>
-    <p>Đang xây dựng... nhưng vẫn đang tiến hóa từng ngày 🔥</p>
+    <!-- avatar -->
+    <div class="center">
+        <img src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png">
+    </div>
+
+    <!-- text -->
+    <div class="title">🚧 Lexuannguu Wiki</div>
+    <div class="title">🚧 Đang build… 😏</div>
+    <div class="subtitle">Powered By NosXLAB Studio</div>
+
+    <!-- loading -->
+    <div class="loading"></div>
+
 </div>
 
 </body>
