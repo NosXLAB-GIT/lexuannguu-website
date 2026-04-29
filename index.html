@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lexuannguu Wiki - Đang xây dựng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: url("https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .loading {
+            margin-top: 30px;
+            width: 200px;
+            height: 5px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .loading::before {
+            content: "";
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: white;
+            animation: load 1.2s infinite;
+        }
+
+        @keyframes load {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <h1>🚧 Lexuannguu Wiki</h1>
+    <p>Trang web đang được xây dựng... quay lại sau nhé 👀</p>
+
+    <div class="loading"></div>
+</div>
+
+<div class="footer">
+    © 2026 NosXLab
+</div>
+
+</body>
+</html>
