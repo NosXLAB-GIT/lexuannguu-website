@@ -1,100 +1,122 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Lexuannguu Wiki - Đang xây dựng</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Lexuannguu Wiki - Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI;
+}
 
-        body {
-            height: 100vh;
-            background: url("https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png") no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
+body{
+    height:100vh;
+    background:#0f172a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+}
 
-        .overlay {
-            background: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+/* nền mờ */
+.bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png") center/cover no-repeat;
+    filter:blur(10px) brightness(0.3);
+}
 
-        .container {
-            position: relative;
-            text-align: center;
-            z-index: 1;
-        }
+/* vòng quay */
+.orbit{
+    position:relative;
+    width:400px;
+    height:400px;
+    animation:spin 20s linear infinite;
+}
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+/* ảnh xoay */
+.orbit img{
+    position:absolute;
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:20px;
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
 
-        p {
-            font-size: 18px;
-            opacity: 0.8;
-        }
+/* vị trí 3 ảnh */
+.img1{ top:0; left:50%; transform:translateX(-50%); }
+.img2{ bottom:0; left:0; }
+.img3{ bottom:0; right:0; }
 
-        .loading {
-            margin-top: 30px;
-            width: 200px;
-            height: 5px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-left: auto;
-            margin-right: auto;
-        }
+/* avatar giữa */
+.center{
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid white;
+    box-shadow:0 0 30px rgba(255,255,255,0.5);
+    z-index:2;
+}
 
-        .loading::before {
-            content: "";
-            display: block;
-            width: 40%;
-            height: 100%;
-            background: white;
-            animation: load 1.2s infinite;
-        }
+.center img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-        @keyframes load {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(300%); }
-        }
+/* text */
+.text{
+    position:absolute;
+    bottom:40px;
+    text-align:center;
+    width:100%;
+}
 
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            opacity: 0.6;
-        }
-    </style>
+h1{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+p{
+    opacity:0.7;
+}
+
+/* animation */
+@keyframes spin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
+<div class="bg"></div>
 
-<div class="container">
-    <h1>🚧 Lexuannguu Wiki</h1>
-    <p>Trang web đang được xây dựng... quay lại sau nhé 👀</p>
-
-    <div class="loading"></div>
+<div class="orbit">
+    <img class="img1" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/675493123_2079986209251527_4933549213989958616_n.png">
+    <img class="img2" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/677168780_988375313621487_505330018484153751_n.png">
+    <img class="img3" src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/678212155_994847826323884_9090406677020971255_n.png">
 </div>
 
-<div class="footer">
-    © 2026 NosXLab
+<div class="center">
+    <img src="https://raw.githubusercontent.com/NosXLAB-GIT/lexuannguu-website/main/568192825_1738721096750445_784827571960637875_n.png">
+</div>
+
+<div class="text">
+    <h1>🚧 Lexuannguu Wiki</h1>
+    <p>Đang xây dựng... nhưng vẫn đang tiến hóa từng ngày 🔥</p>
 </div>
 
 </body>
